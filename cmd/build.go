@@ -31,7 +31,7 @@ var buildCmd = &cobra.Command{
 
 		// Create a container that mounts the directory.
 		container := client.Container().
-			From("docker.io/library/golang:1.18").
+			From("docker.io/library/golang:1.24").
 			WithMountedDirectory("/src", srcDir).
 			WithWorkdir("/src")
 
