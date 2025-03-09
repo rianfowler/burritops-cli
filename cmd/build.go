@@ -38,7 +38,11 @@ var buildCmd = &cobra.Command{
 		// Build the image using srcDir as the build context.
 		image := container.Build(srcDir)
 
-		fmt.Println("Build successful! Image ID:", image.ID())
+		id, err := image.ID(ctx)
+		if err != nil {
+			log.Fatalf("failed to retrieve image ID: %v", err)
+		}
+		fmt.Println("Build successful! Image ID:", id)
 	},
 }
 
